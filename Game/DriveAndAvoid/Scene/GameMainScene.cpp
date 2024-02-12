@@ -168,9 +168,9 @@ void GameMainScene::Draw() const
 	}
 	DrawFormatString(510, 200, GetColor(0, 0, 0), "走行距離");
 	DrawFormatString(555, 220, GetColor(255, 255, 255), "%08d", mileage / 10);
-	DrawFormatString(510, 240, GetColor(0, 0, 0), "スピード");
+	/*DrawFormatString(510, 240, GetColor(0, 0, 0), "スピード");
 	DrawFormatString(555, 260, GetColor(255, 255, 255), "%08.1f",
-		player->GetSpeed());
+		player->GetSpeed());*/
 
 	//バリアの枚数の描画
 	for (int i = 0; i < player->GetBarriarCount(); i++)
