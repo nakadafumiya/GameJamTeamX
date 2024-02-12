@@ -5,11 +5,11 @@
 
 /*
 		//Ranking.csvbackup
-20000,1,--------------,
-10000,2,--------------,
- 5000,3,--------------,
- 1000,4,--------------,
-  500,5,--------------,
+20000,1,------------,
+10000,2,------------,
+ 5000,3,------------,
+ 1000,4,------------,
+  500,5,------------,
 */
 
 
@@ -19,7 +19,7 @@ barrier_image(NULL),
 									mileage(0),player(nullptr),
 enemy(nullptr)
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		enemy_image[i] = NULL;
 		enemy_count[i] = NULL;
@@ -40,8 +40,8 @@ void GameMainScene::Initialize()
 	//画像の読み込み
 	back_ground = LoadGraph("Resource/images/back.bmp");
 	barrier_image = LoadGraph("Resource/images/barrier.png");
-	int result = LoadDivGraph("Resource/images/car.bmp", 3, 3, 1, 63, 120,
-		enemy_image);
+	int result = LoadDivGraph("Resource/images/items.png",2, 2, 1, 64, 64,
+		enemy_image, FALSE);
 
 	//エラーチェック
 	if (back_ground == -1)
@@ -50,7 +50,7 @@ void GameMainScene::Initialize()
 	}
 	if (result == -1)
 	{
-		throw ("Resource/images/car.bmpがありません\n");
+		throw ("Resource/images/items.bmpがありません\n");
 	}
 	if (barrier_image == -1)
 	{
@@ -87,7 +87,7 @@ eSceneType GameMainScene::Update()
 		{
 			if (enemy[i] == nullptr)
 			{
-				int type = GetRand(3) % 3;
+				int type = GetRand(1);
 				enemy[i] = new Enemy(type, enemy_image[type]);
 				enemy[i]->Initialize();
 				break;
@@ -112,7 +112,14 @@ eSceneType GameMainScene::Update()
 			}
 
 			//当たり判定の確認
-			if (IsHitCheck(player, enemy[i]))
+			if (IsHitCheck(player, enemy[i])  && enemy[i]->GetType() == 0)
+			{
+				player->DecreaseHp(+50.0f);
+				enemy[i]->Finalize();
+				delete enemy[i];
+				enemy[i] = nullptr;
+			}
+			else if (IsHitCheck(player, enemy[i]) && enemy[i]->GetType() == 1)
 			{
 				player->SetActive(false);
 				player->DecreaseHp(-50.0f);
