@@ -4,7 +4,7 @@
 
 Player::Player() : is_active(false), image(NULL), location(0.0f), box_size(0.0f),
 angle(0.0f),
-speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0),
+speed(0.0f), hp(0.0f), barrier_count(0),	
 barrier(nullptr)
 {
 
@@ -25,7 +25,6 @@ void Player::Initialize()
 	angle = 0.0f;
 	speed = 3.0f;
 	hp = 1000;
-	fuel = 20000;
 	barrier_count = 3;
 
 	//画像の読み込み
@@ -53,8 +52,9 @@ void Player::Update()
 		return;
 	}
 
+	//使わないプログラム
 	//燃料の消費
-	fuel -= speed;
+	/*fuel -= speed;*/
 
 	//移動処理
 	Movement();
@@ -145,11 +145,12 @@ float Player::GetSpeed() const
 	return this->speed;
 }
 
+//使わないプログラム
 //燃料取得処理
-float Player::GetFuel() const
-{
-	return this->fuel;
-}
+//float Player::GetFuel() const
+//{
+//	return this->fuel;
+//}
 
 //体力取得処理
 float Player::GetHp() const
