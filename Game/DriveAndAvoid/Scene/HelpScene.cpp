@@ -42,7 +42,6 @@ eSceneType HelpScene::Update()
 //•`‰æˆ—
 void HelpScene:: Draw() const
 {
-	int test;
 
 	//”wŒi‰æ‘œ‚Ì•`‰æ
 	DrawGraph(0, 0, background_image, FALSE);
@@ -50,11 +49,6 @@ void HelpScene:: Draw() const
 	//ƒQ[ƒ€à–¾
 	SetFontSize(16);
 	DrawString(20, 120, "ƒwƒ‹ƒv‰æ–Ê", 0xffffff, 0);
-
-
-	test = LoadGraph("Resource/images/nekokan.png");
-	DrawRotaGraphF(50, 50, 0.064, 0.064, test, TRUE);
-	
 
 	DrawString(20, 160, "‚±‚ê‚ÍáŠQ•¨‚ğ”ğ‚¯‚È‚ª‚ç", 0xffffff, 0);
 	DrawString(20, 180, "‘–‚è‘±‚¯‚éƒQ[ƒ€‚Å‚·", 0xffffff, 0);
