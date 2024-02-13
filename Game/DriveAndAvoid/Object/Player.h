@@ -7,9 +7,11 @@ class Player
 {
 private:
 	bool is_active;			//有効状態か？
-	int image;				//画像データ
+	int imageleft;		    //画像データ(左向き)
+	int imageright;         //画像データ(右向き)
 	Vector2D location;		//位置座標
 	Vector2D box_size;		//当たり判定の大きさ
+	int playersituation;    // プレイヤーが向いている状態
 	float angle;			//角度
 	float speed;			//速さ
 	float hp;				//体力
