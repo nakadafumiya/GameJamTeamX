@@ -4,7 +4,7 @@
 
 Player::Player() : is_active(false), imageleft(NULL),imageright(NULL),playersituation(0), location(0.0f), box_size(0.0f),
 angle(0.0f),
-speed(0.0f), hp(0.0f), fuel(0.0f), barrier_count(0),
+speed(0.0f), hp(0.0f),  barrier_count(0),
 barrier(nullptr)
 {
 
@@ -25,7 +25,7 @@ void Player::Initialize()
 	angle = 0.0f;
 	speed = 5.0f;
 	hp = 1000;
-	fuel = 20000;
+	
 	barrier_count = 3;
 
 	//‰æ‘œ‚Ì“Ç‚İ‚İ
@@ -161,11 +161,6 @@ float Player::GetSpeed() const
 	return this->speed;
 }
 
-//”R—¿æ“¾ˆ—
-float Player::GetFuel() const
-{
-	return this->fuel;
-}
 
 //‘Ì—Íæ“¾ˆ—
 float Player::GetHp() const
